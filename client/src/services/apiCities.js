@@ -17,13 +17,16 @@ export async function apiCity(id) {
 
 export async function apiDeleteCity(id) {
   const controller = new AbortController();
-  const data = await axios({
-    method: "DELETE",
-    url: `https://world-q468.vercel.app/api/v1/cities/${id}`,
-    signal: controller.signal(),
-  });
-  controller.abort();
-  return data;
+  try {
+    const data = await axios({
+      method: "DELETE",
+      url: `https://world-q468.vercel.app/api/v1/cities/${id}`,
+      signal: controller.signal(),
+    });
+    return data;
+  } finally {
+    controller.abort();
+  }
 }
 export async function apiADDCity(data1) {
   console.log(data1);
