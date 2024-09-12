@@ -4,9 +4,11 @@ import { useCities } from "../../context/CitiesContext";
 
 function City({ city }) {
   const { DeleteCity } = useCities();
+  let x = false;
   const handelDelete = (e) => {
     e.preventDefault();
     DeleteCity(city._id);
+    x = true;
   };
   const time = city?.date ? formatdate(city?.date) : null;
 
@@ -21,6 +23,7 @@ function City({ city }) {
         </span>
         <span className="text-sm text-slate-100">{time}</span>
         <button
+          disabled={x}
           onClick={handelDelete}
           className="border-none bg-slate-500 px-2 py-1 rounded-full text-[12px]"
         >
