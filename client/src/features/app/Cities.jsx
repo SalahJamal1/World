@@ -10,7 +10,7 @@ function Cities() {
   if (error) return <Error error={error} />;
   if (!cities.length) return <Empty />;
   return (
-    <ul className="flex flex-col space-y-4">
+    <ul className="flex flex-col space-y-4 overflow-y-scroll h-[70vh]">
       {cities?.map((city, i) => (
         <City city={city} key={i} />
       ))}

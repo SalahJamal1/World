@@ -13,7 +13,7 @@ function Countries() {
   if (!cities.length) return <Empty />;
 
   return (
-    <ul className="grid grid-cols-2 space-x gap-6">
+    <ul className="grid grid-cols-2 space-x gap-6 overflow-y-scroll h-[70vh]">
       {cities.map((country, i) => (
         <Country country={country} key={i} />
       ))}

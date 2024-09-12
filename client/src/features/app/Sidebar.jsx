@@ -4,7 +4,7 @@ import Appnav from "./Appnav";
 
 function Sidebar() {
   return (
-    <div className="bg-slate-600 h-[95vh] flex flex-col px-4 py-6 rounded-md relative space-y-12 w-[30rem]">
+    <div className="bg-slate-600 h-[95vh] flex flex-col px-4 py-6 rounded-md relative space-y-12 w-[30rem] overflow-y-scroll">
       <Appnav />
       <Outlet />
       <footer className="text-slate-100  tracking-wide h-full flex items-end justify-center">
