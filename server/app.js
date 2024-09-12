@@ -19,14 +19,24 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(express.json());
 ///////////////////////
+const allowedOrigins = [
+  "https://world-lilac-two.vercel.app",
+  "https://world-q468.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://world-lilac-two.vercel.app/", // Single origin as a string
-    credentials: true, // Allow credentials (cookies, etc.)
-    methods: ["GET", "POST", "PUT", "DELETE"], // Instead of wildcard, specify the allowed methods
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(
