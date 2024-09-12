@@ -16,7 +16,7 @@ function Pricing() {
               fugit voluptatem iste.
             </p>
           </div>
-          <img src="./public/img-2.jpg" alt="img-2" className="w-[20rem]" />
+          <img src="/img-2.jpg" alt="img-2" className="w-[20rem]" />
         </div>
       </section>
     </main>
