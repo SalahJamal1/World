@@ -21,7 +21,7 @@ app.use(express.json());
 ///////////////////////
 app.use(
   cors({
-    origin: ["https://world-q468.vercel.app"],
+    origin: "https://world-2euuuj3kp-salahs-projects-58b80c31.vercel.app",
     credentials: true,
     methods: "*",
   })
