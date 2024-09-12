@@ -8,7 +8,7 @@ function Cities() {
   const { cities, loading, error } = useCities().value;
   if (!cities.length) return <Empty />;
   if (loading) return <Loading />;
-  if (error && cities.length < 1) return <Error error={error} />;
+  if (error) return <Error error={error} />;
   return (
     <ul className="flex flex-col space-y-4">
       {cities?.map((city, i) => (
