@@ -40,7 +40,7 @@ function Login() {
             required
             placeholder="example@gmail.com"
             className="rounded-md h-8 bg-slate-300 mb-4 outline-none text-slate-500 px-2 placeholder:text-slate-400"
-            value={email}
+            value={"salah@gmail.com"}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="password" className="text-slate-100 text-base mb-1">
@@ -53,7 +53,7 @@ function Login() {
             maxLength="8"
             placeholder="*******"
             className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-500 px-2 placeholder:text-slate-400"
-            value={password}
+            value={"12345678"}
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="block items-start">
