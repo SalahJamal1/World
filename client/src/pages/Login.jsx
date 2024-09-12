@@ -5,8 +5,8 @@ import { Logins } from "../features/app/userSlice";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("salah@gmail.com");
+  const [password, setPassword] = useState("12345678");
   const { Auth } = useSelector((store) => store.userSlice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ function Login() {
             required
             placeholder="example@gmail.com"
             className="rounded-md h-8 bg-slate-300 mb-4 outline-none text-slate-500 px-2 placeholder:text-slate-400"
-            value={"salah@gmail.com"}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="password" className="text-slate-100 text-base mb-1">
@@ -53,7 +53,7 @@ function Login() {
             maxLength="8"
             placeholder="*******"
             className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-500 px-2 placeholder:text-slate-400"
-            value={"12345678"}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="block items-start">
