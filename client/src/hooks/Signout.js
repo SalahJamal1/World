@@ -13,5 +13,5 @@ export function HandelLogouts() {
       console.log(err);
     }
   };
-  return {handelLogout};
+  return { handelLogout };
 }
