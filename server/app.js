@@ -22,6 +22,7 @@ app.use(express.json());
 const allowedOrigins = [
   "https://world-lilac-two.vercel.app",
   "https://world-q468.vercel.app",
+  "http://localhost:5173",
 ];
 
 app.use(
