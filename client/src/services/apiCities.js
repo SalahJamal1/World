@@ -23,6 +23,7 @@ export async function apiDeleteCity(id) {
   return data;
 }
 export async function apiADDCity(data1) {
+  console.log(data1);
   const data = await axios({
     method: "POST",
     url: `http://127.0.0.1:3000/api/v1/cities`,

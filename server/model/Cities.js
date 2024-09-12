@@ -4,7 +4,10 @@ const CitySchema = new mogoose.Schema({
   cityName: String,
   country: String,
   emoji: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
   notes: String,
   position: {
     lat: Number,

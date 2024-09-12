@@ -24,7 +24,6 @@ exports.Login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
-  console.log(req.cookies);
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
@@ -33,7 +32,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   } else {
     token = req.cookies.jwt;
   }
-  console.log(token);
   if (!token) {
     return next(new AppError("please Login", 404));
   }

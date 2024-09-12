@@ -5,7 +5,7 @@ import { GetCity } from "../hooks/Getcity";
 
 const CitiesProvider = createContext();
 function CitiesContext({ children }) {
-  const { cities, loading, error, DeleteCity } = Getcities();
+  const { cities, loading, error, DeleteCity, ADDCity } = Getcities();
   const { getCity, city, loaderCity, errroCity } = GetCity();
   const value = useMemo(
     function () {
@@ -21,7 +21,7 @@ function CitiesContext({ children }) {
     [cities, loading, error, city, loaderCity, errroCity]
   );
   return (
-    <CitiesProvider.Provider value={{ value, getCity, DeleteCity }}>
+    <CitiesProvider.Provider value={{ value, getCity, DeleteCity, ADDCity }}>
       {children}
     </CitiesProvider.Provider>
   );

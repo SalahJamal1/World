@@ -14,7 +14,8 @@ export function GetCity() {
       setLoader(false);
     } catch (err) {
       console.log(err);
-      setErorr(err.response.data.message);
+      const errorMessage = err?.response?.data?.message || "An error occurred";
+      setErorr(errorMessage);
       setLoader(false);
     }
   }, []);
