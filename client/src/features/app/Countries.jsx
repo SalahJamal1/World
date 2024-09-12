@@ -1,13 +1,15 @@
 import { useCities } from "../../context/CitiesContext";
 import Error from "../../ui/Error";
-import Loading from "../../ui/Loading";
+import Loader from "../../ui/Loader";
 import Country from "./Country";
 import Empty from "./Empty";
 
 function Countries() {
-  const { cities, loading } = useCities().value;
+  const { cities, loading, error } = useCities().value;
 
-  if (loading) return <Loading />;
+  if (loading) return <Loader />;
+  if (error) return <Error error={error} />;
+
   if (!cities.length) return <Empty />;
 
   return (

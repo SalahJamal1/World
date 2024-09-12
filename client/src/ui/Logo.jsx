@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Logo() {
   return (
-    <Link to="/">
+    <Link to="/" className="z-[999]">
       <img src="/logo.png" alt="logo" className="h-12" />
     </Link>
   );

@@ -7,6 +7,7 @@ import { useLocations } from "../../hooks/useLocations";
 import { useCities } from "../../context/CitiesContext";
 import Loading from "../../ui/Loading";
 import Error from "../../ui/Error";
+import Loader from "../../ui/Loader";
 
 function Form() {
   const { ADDCity } = useCities();
@@ -59,7 +60,7 @@ function Form() {
     ADDCity(newCity);
     navigate("/app/cities");
   };
-  if (loading) return <Loading />;
+  if (loading) return <Loader />;
   if (error) return <Error error={error} />;
   return (
     <form className="flex flex-col bg-slate-500 rounded-lg shadow-2xl py-6 px-6">

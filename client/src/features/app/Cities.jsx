@@ -1,12 +1,13 @@
 import { useCities } from "../../context/CitiesContext";
 import Error from "../../ui/Error";
-import Loading from "../../ui/Loading";
+import Loader from "../../ui/Loader";
 import City from "./City";
 import Empty from "./Empty";
 
 function Cities() {
-  const { cities, loading } = useCities().value;
-  if (loading) return <Loading />;
+  const { cities, loading, error } = useCities().value;
+  if (loading) return <Loader />;
+  if (error) return <Error error={error} />;
   if (!cities.length) return <Empty />;
   return (
     <ul className="flex flex-col space-y-4">

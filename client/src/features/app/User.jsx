@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Getusers } from "../../hooks/Getuser";
 import { HandelLogouts } from "../../hooks/Signout";
-import Loading from "../../ui/Loading";
+import Loader from "../../ui/Loader";
 
 function User() {
   const { user, loader } = useSelector((store) => store.userSlice);
@@ -11,7 +11,7 @@ function User() {
   return (
     <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 absolute top-10 right-[30%] z-[999] items-center shadow-lg">
       {loader ? (
-        <Loading />
+        <Loader />
       ) : (
         <>
           <img src={user.avatar} alt="user" className="h-12 rounded-full" />

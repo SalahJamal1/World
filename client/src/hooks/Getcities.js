@@ -30,16 +30,18 @@ function Getcities() {
       toast.error("Invalid city ID");
       return;
     }
-
     try {
+      setLoading(true);
       const data = await apiDeleteCity(id);
       setCities((s) => s.filter((el) => el._id !== id));
       toast.success("The city has been deleted");
+      setLoading(false);
     } catch (err) {
       console.error(err);
       const errorMessage = err?.response?.data?.message || "An error occurred";
       toast.error(errorMessage);
       setError(errorMessage);
+      setLoading(false);
     }
   }
 
