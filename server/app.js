@@ -21,11 +21,12 @@ app.use(express.json());
 ///////////////////////
 app.use(
   cors({
-    origin: ["https://world-2euuuj3kp-salahs-projects-58b80c31.vercel.app"],
-    credentials: true,
-    methods: "*",
+    origin: "https://world-2euuuj3kp-salahs-projects-58b80c31.vercel.app", // Single origin as a string
+    credentials: true, // Allow credentials (cookies, etc.)
+    methods: ["GET", "POST", "PUT", "DELETE"], // Instead of wildcard, specify the allowed methods
   })
 );
+
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(
