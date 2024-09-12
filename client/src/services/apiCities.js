@@ -135,7 +135,7 @@ export async function getMe() {
   const controller = createNewController();
   try {
     const { data } = await axios.get(`${baseURL}/users/getMe`, {
-      signal: controller.signal,
+      // signal: controller.signal,
       withCredentials: true,
     });
     return data;
