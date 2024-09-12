@@ -6,9 +6,9 @@ import Empty from "./Empty";
 
 function Countries() {
   const { cities, loading } = useCities().value;
-  if (!cities.length) return <Empty />;
 
   if (loading) return <Loading />;
+  if (!cities.length) return <Empty />;
 
   return (
     <ul className="grid grid-cols-2 space-x gap-6">

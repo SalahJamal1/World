@@ -6,8 +6,8 @@ import Empty from "./Empty";
 
 function Cities() {
   const { cities, loading } = useCities().value;
-  if (!cities.length) return <Empty />;
   if (loading) return <Loading />;
+  if (!cities.length) return <Empty />;
   return (
     <ul className="flex flex-col space-y-4">
       {cities?.map((city, i) => (

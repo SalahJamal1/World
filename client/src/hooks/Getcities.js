@@ -7,8 +7,8 @@ function Getcities() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(function () {
+    setLoading(true);
     async function getCities() {
-      setLoading(true);
       try {
         const data = await apiCities();
         setCities(data.data.data.doc);
@@ -44,9 +44,8 @@ function Getcities() {
   }
 
   async function ADDCity(city) {
+    setLoading(true);
     try {
-      setLoading(true);
-
       const { data } = await apiADDCity(city);
       setCities((prevCities) => [...prevCities, data.data.doc]);
       toast.success("The city has been added");
