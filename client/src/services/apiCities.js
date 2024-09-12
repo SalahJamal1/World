@@ -18,16 +18,24 @@ export async function apiCity(id) {
 export async function apiDeleteCity(id) {
   const controller = new AbortController();
   try {
-    const data = await axios({
+    const response = await axios({
       method: "DELETE",
       url: `https://world-q468.vercel.app/api/v1/cities/${id}`,
-      signal: controller.signal(),
+      signal: controller.signal,
     });
-    return data;
+    return response.data;
+  } catch (error) {
+    if (axios.isCancel(error)) {
+      console.log("Request canceled", error.message);
+    } else {
+      console.error("Error occurred:", error);
+    }
+    throw error;
   } finally {
     controller.abort();
   }
 }
+
 export async function apiADDCity(data1) {
   console.log(data1);
   const data = await axios({
