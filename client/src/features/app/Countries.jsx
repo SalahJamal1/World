@@ -5,11 +5,10 @@ import Country from "./Country";
 import Empty from "./Empty";
 
 function Countries() {
-  const { cities, loading, error } = useCities().value;
+  const { cities, loading } = useCities().value;
   if (!cities.length) return <Empty />;
 
   if (loading) return <Loading />;
-  if (error) return <Error error={error} />;
 
   return (
     <ul className="grid grid-cols-2 space-x gap-6">

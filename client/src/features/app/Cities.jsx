@@ -5,10 +5,9 @@ import City from "./City";
 import Empty from "./Empty";
 
 function Cities() {
-  const { cities, loading, error } = useCities().value;
+  const { cities, loading } = useCities().value;
   if (!cities.length) return <Empty />;
   if (loading) return <Loading />;
-  if (error) return <Error error={error} />;
   return (
     <ul className="flex flex-col space-y-4">
       {cities?.map((city, i) => (

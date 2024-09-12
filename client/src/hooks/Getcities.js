@@ -8,8 +8,8 @@ function Getcities() {
   const [error, setError] = useState("");
   useEffect(function () {
     async function getCities() {
+      setLoading(true);
       try {
-        setLoading(true);
         const data = await apiCities();
         setCities(data.data.data.doc);
         setLoading(false);
