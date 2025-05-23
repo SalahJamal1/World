@@ -34,7 +34,6 @@ function UserContext({ children }) {
     reducer,
     initialState
   );
-
   return (
     <UserProvider.Provider value={{ user, Auth, err, loader, dispatch }}>
       {children}

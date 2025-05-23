@@ -5,21 +5,18 @@ import Loading from "../ui/Loading";
 
 function ProtectPage({ children }) {
   const { Auth, loader } = useUser();
-  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const navigate = useNavigate();
   useEffect(
     function () {
-      if (Auth === undefined) return;
-      else if (!Auth && loader && !isAuthChecked) {
+      if (loader || !loader) return;
+      else if (!Auth) {
         navigate("/");
       }
-      setIsAuthChecked(true);
     },
-    [Auth, navigate, loader, isAuthChecked]
+    [Auth, navigate, loader]
   );
-
-  if (!isAuthChecked) return <Loading />;
-  return loader ? children : null;
+  if (!Auth && loader) return <Loading />;
+  return Auth ? children : null;
 }
 
 export default ProtectPage;
