@@ -9,7 +9,7 @@ function User() {
   const { handelLogout } = HandelLogouts();
 
   return (
-    <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 fixed top-10 right-[5%] z-[999] items-center shadow-lg xs:hidden">
+    <div className="sm:flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 fixed top-10 right-[5%] z-[999] items-center shadow-lg xs:hidden">
       {loader ? (
         <Loader />
       ) : (
