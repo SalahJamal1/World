@@ -11,7 +11,7 @@ function ProtectPage({ children }) {
     },
     [Auth, navigate, loader]
   );
-
+  console.log(Auth);
   return Auth ? children : null;
 }
 
