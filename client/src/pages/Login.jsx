@@ -1,21 +1,41 @@
 import { useEffect, useState } from "react";
 import PageNav from "../ui/PageNav";
-import { useDispatch, useSelector } from "react-redux";
-import { Logins } from "../components/userSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
+import toast from "react-hot-toast";
+import { login } from "../services/apiCities";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { Auth } = useSelector((store) => store.userSlice);
-  const dispatch = useDispatch();
+  const { Auth, dispatch } = useUser();
   const navigate = useNavigate();
+  const [formData, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handelLogin = (e) => {
-    e.preventDefault();
-    if (!email && !password) return;
-    dispatch(Logins({ email, password }));
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handelLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await login(formData);
+
+      if (data.status === 200) {
+        toast.success("Login successfully");
+        dispatch({ type: "User/Login", payload: data.data.user });
+        navigate("/app");
+      }
+    } catch (err) {
+      console.log(err);
+      const errorMessage = err?.response?.data?.message || "An error occurred";
+      toast.error(errorMessage);
+      dispatch({ type: "User/Error", payload: errorMessage });
+    }
+  };
+
   useEffect(
     function () {
       if (Auth) navigate("/app");
@@ -37,11 +57,12 @@ function Login() {
           <input
             type="email"
             id="email"
+            name="email"
             required
             placeholder="example@gmail.com"
             className="rounded-md h-8 bg-slate-300 mb-4 outline-none text-slate-500 px-2 placeholder:text-slate-400"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={onChange}
           />
           <label htmlFor="password" className="text-slate-100 text-base mb-1">
             password
@@ -49,12 +70,13 @@ function Login() {
           <input
             type="password"
             id="password"
+            name="password"
             required
             maxLength="8"
             placeholder="*******"
             className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-700 px-2 placeholder:text-slate-400"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={onChange}
           />
           <div className="flex justify-between px-2">
             <button className="px-4 py-1 bg-green-500 rounded-md tracking-widest">

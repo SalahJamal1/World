@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import { useSelector } from "react-redux";
 import { HandelLogouts } from "../hooks/Signout";
 import { MdClose, MdMenu } from "react-icons/md";
 import { useState } from "react";
+import { useUser } from "../context/UserContext";
 
 function PageNav() {
-  const { user } = useSelector((store) => store.userSlice);
+  const { user } = useUser();
   const { handelLogout } = HandelLogouts();
   const [isOpen, setIsOpen] = useState(null);
   return (

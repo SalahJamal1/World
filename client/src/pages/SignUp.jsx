@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PageNav from "../ui/PageNav";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../services/apiCities";
 import toast from "react-hot-toast";
@@ -23,7 +22,6 @@ function SignUp() {
     e.preventDefault();
     try {
       const data = await signUp(formData);
-      console.log(data);
       if (data.status === 200) {
         toast.success("You are signed Up successfully");
         navigate("/login");

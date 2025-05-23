@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 function ProtectPage({ children }) {
-  const { Auth, loader } = useSelector((store) => store.userSlice);
+  const { Auth, loader } = useUser();
   const navigate = useNavigate();
   useEffect(
     function () {
-      if (!Auth) navigate("/");
+      if (loader && !Auth) navigate("/");
     },
     [Auth, navigate, loader]
   );
-  console.log(Auth);
+
   return Auth ? children : null;
 }
 

@@ -28,7 +28,7 @@ export async function apiADDCity(data1) {
   return data;
 }
 
-export async function Login(data) {
+export async function login(data) {
   const data1 = await api.post(`/users/Login`, data);
   return data1;
 }

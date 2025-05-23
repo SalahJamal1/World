@@ -10,6 +10,8 @@ import Form from "./components/Form";
 import Countries from "./components/Countries";
 import CityName from "./components/CityName";
 import ProtectPage from "./pages/ProtectPage";
+import UserContext from "./context/UserContext";
+import { Getusers } from "./components/Getuser";
 
 const SignUp = lazy(() => import("./pages/SignUp"));
 const Home = lazy(() => import("./pages/Home"));
@@ -46,31 +48,34 @@ function App() {
         }}
       />
       <Suspense fallback={<Loading />}>
-        <CitiesContext>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="pricing" element={<Pricing />} />
-            <Route path="product" element={<Product />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="*" element={<Pagenotfound />} />
+        <UserContext>
+          <CitiesContext>
+            <Getusers />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="product" element={<Product />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="*" element={<Pagenotfound />} />
 
-            <Route
-              path="app"
-              element={
-                <ProtectPage>
-                  <AppLayout />
-                </ProtectPage>
-              }
-            >
-              <Route path="countries" element={<Countries />} />
-              <Route path="cities" element={<Cities />} />
-              <Route path="cities/:id" element={<CityName />} />
-              <Route path="form" element={<Form />} />
-              <Route index element={<Navigate replace to="cities" />} />
-            </Route>
-          </Routes>
-        </CitiesContext>
+              <Route
+                path="app"
+                element={
+                  <ProtectPage>
+                    <AppLayout />
+                  </ProtectPage>
+                }
+              >
+                <Route path="countries" element={<Countries />} />
+                <Route path="cities" element={<Cities />} />
+                <Route path="cities/:id" element={<CityName />} />
+                <Route path="form" element={<Form />} />
+                <Route index element={<Navigate replace to="cities" />} />
+              </Route>
+            </Routes>
+          </CitiesContext>
+        </UserContext>
       </Suspense>
     </BrowserRouter>
   );
