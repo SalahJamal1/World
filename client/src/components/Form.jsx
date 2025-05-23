@@ -3,11 +3,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocations } from "../../hooks/useLocations";
-import { useCities } from "../../context/CitiesContext";
-import Loading from "../../ui/Loading";
-import Error from "../../ui/Error";
-import Loader from "../../ui/Loader";
+import { useLocations } from "../hooks/useLocations";
+import { useCities } from "../context/CitiesContext";
+import Loading from "../ui/Loading";
+import Error from "../ui/Error";
+import Loader from "../ui/Loader";
 
 function Form() {
   const { ADDCity } = useCities();

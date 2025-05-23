@@ -5,12 +5,13 @@ import { Toaster } from "react-hot-toast";
 import Loading from "./ui/Loading";
 import Pagenotfound from "./pages/Pagenotfound";
 import CitiesContext from "./context/CitiesContext";
-import Cities from "./features/app/Cities";
-import Form from "./features/app/Form";
-import Countries from "./features/app/Countries";
-import CityName from "./features/app/CityName";
+import Cities from "./components/Cities";
+import Form from "./components/Form";
+import Countries from "./components/Countries";
+import CityName from "./components/CityName";
 import ProtectPage from "./pages/ProtectPage";
 
+const SignUp = lazy(() => import("./pages/SignUp"));
 const Home = lazy(() => import("./pages/Home"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Product = lazy(() => import("./pages/Product"));
@@ -51,6 +52,7 @@ function App() {
             <Route path="pricing" element={<Pricing />} />
             <Route path="product" element={<Product />} />
             <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
             <Route path="*" element={<Pagenotfound />} />
 
             <Route

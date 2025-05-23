@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../../ui/Logo";
+import Logo from "../ui/Logo";
 
 function Appnav() {
   return (

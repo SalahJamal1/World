@@ -8,9 +8,9 @@ import {
   Popup,
   useMapEvents,
 } from "react-leaflet";
-import { HandelPostion } from "../../hooks/Getposition";
+import { HandelPostion } from "../hooks/Getposition";
 import { useNavigate } from "react-router-dom";
-import { useLocations } from "../../hooks/useLocations";
+import { useLocations } from "../hooks/useLocations";
 
 function Map() {
   const [position, setPosition] = useState([51.505, -0.09]);

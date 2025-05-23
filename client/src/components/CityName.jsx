@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useCities } from "../../context/CitiesContext";
-import { formatdate } from "../../utils/helpers";
-import Error from "../../ui/Error";
-import Loader from "../../ui/Loader";
+import { useCities } from "../context/CitiesContext";
+import { formatdate } from "../utils/helpers";
+import Error from "../ui/Error";
+import Loader from "../ui/Loader";
 
 function CityName() {
   const { city, loaderCity, errroCity } = useCities().value;

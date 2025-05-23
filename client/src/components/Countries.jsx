@@ -1,6 +1,6 @@
-import { useCities } from "../../context/CitiesContext";
-import Error from "../../ui/Error";
-import Loader from "../../ui/Loader";
+import { useCities } from "../context/CitiesContext";
+import Error from "../ui/Error";
+import Loader from "../ui/Loader";
 import Country from "./Country";
 import Empty from "./Empty";
 

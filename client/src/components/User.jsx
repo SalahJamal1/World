@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { Getusers } from "../../hooks/Getuser";
-import { HandelLogouts } from "../../hooks/Signout";
-import Loader from "../../ui/Loader";
+import { Getusers } from "../hooks/Getuser";
+import { HandelLogouts } from "../hooks/Signout";
+import Loader from "../ui/Loader";
 
 function User() {
   const { user, loader } = useSelector((store) => store.userSlice);
@@ -9,7 +9,7 @@ function User() {
   const { handelLogout } = HandelLogouts();
 
   return (
-    <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 absolute top-10 right-[30%] z-[999] items-center shadow-lg">
+    <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 fixed top-10 right-[5%] z-[999] items-center shadow-lg xs:hidden">
       {loader ? (
         <Loader />
       ) : (

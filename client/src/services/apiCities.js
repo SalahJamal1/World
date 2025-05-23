@@ -1,73 +1,46 @@
 import axios from "axios";
 
+const api = axios.create({
+  baseURL: "https://world-q468.vercel.app/api/v1",
+  withCredentials: true,
+});
 export async function apiCities() {
-  const data = await axios({
-    method: "GET",
-    url: "https://world-q468.vercel.app/api/v1/cities",
-  });
+  const data = await api.get("/cities");
   return data;
 }
 export async function apiCity(id) {
-  const data = await axios({
-    method: "GET",
-    url: `https://world-q468.vercel.app/api/v1/cities/${id}`,
-  });
+  const data = await api.get(`/cities/${id}`);
   return data;
 }
 
 export async function apiDeleteCity(id) {
-  const controller = new AbortController();
   try {
-    const response = await axios({
-      method: "DELETE",
-      url: `https://world-q468.vercel.app/api/v1/cities/${id}`,
-      signal: controller.signal,
-    });
-    return response.data;
+    const data = await api.delete(`/cities/${id}`);
+
+    return data.data;
   } catch (error) {
-    if (axios.isCancel(error)) {
-      console.log("Request canceled", error.message);
-    } else {
-      console.error("Error occurred:", error);
-    }
-    throw error;
-  } finally {
-    controller.abort();
+    console.log("Error", error.message);
   }
 }
 
 export async function apiADDCity(data1) {
-  console.log(data1);
-  const data = await axios({
-    method: "POST",
-    url: `https://world-q468.vercel.app/api/v1/cities`,
-    data: data1,
-  });
+  const data = await api.post(`/cities`, data1);
   return data;
 }
 
 export async function Login(data) {
-  const data1 = await axios({
-    method: "POST",
-    url: "https://world-q468.vercel.app/api/v1/users/Login",
-    data,
-    withCredentials: true,
-  });
+  const data1 = await api.post(`/users/Login`, data);
+  return data1;
+}
+export async function signUp(data) {
+  const data1 = await api.post(`/users/SignUp`, data);
   return data1;
 }
 export async function Logout() {
-  const data = await axios({
-    method: "GET",
-    url: "https://world-q468.vercel.app/api/v1/users/Logout",
-    withCredentials: true,
-  });
+  const data = await api.get(`/users/Logout`);
   return data;
 }
 export async function getMe() {
-  const data = await axios({
-    method: "GET",
-    url: "https://world-q468.vercel.app/api/v1/users/getMe",
-    withCredentials: true,
-  });
+  const data = await api.get(`/users/getMe`);
   return data;
 }

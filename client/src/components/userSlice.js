@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getMe, Login } from "../../services/apiCities";
+import { getMe, Login } from "../services/apiCities";
 import toast from "react-hot-toast";
 
 export const Logins = createAsyncThunk(

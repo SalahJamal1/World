@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  overflow: hidden;
-}
-body {
-  overflow: hidden;
-}
 /* HTML: <div class="loader"></div> */
 .loader {
   width: 15px;
@@ -25,7 +19,7 @@ body {
     url("/bg.jpg");
   background-position: center;
   background-size: cover;
-  height: 95vh;
+  min-height: 95vh;
   margin: 1.3rem;
 }
 @keyframes l5 {

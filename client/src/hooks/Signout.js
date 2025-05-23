@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Logouts } from "../features/app/userSlice";
+import { Logouts } from "../components/userSlice";
 import { Logout } from "../services/apiCities";
 
 export function HandelLogouts() {

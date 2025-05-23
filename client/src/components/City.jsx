@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { formatdate } from "../../utils/helpers";
-import { useCities } from "../../context/CitiesContext";
+import { formatdate } from "../utils/helpers";
+import { useCities } from "../context/CitiesContext";
 
 function City({ city }) {
   const { DeleteCity } = useCities();
