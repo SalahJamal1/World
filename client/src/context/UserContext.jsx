@@ -16,8 +16,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        Auth: state.user.name ? true : false,
         loader: true,
+        Auth: state.user.name ? true : false,
       };
     case "User/Logout":
       return { ...state, user: {}, Auth: false, loader: false };
@@ -30,10 +30,13 @@ const reducer = (state, action) => {
 
 const UserProvider = createContext();
 function UserContext({ children }) {
-  const [{ user, Auth, err }, dispatch] = useReducer(reducer, initialState);
-  console.log(user, Auth);
+  const [{ user, Auth, err, loader }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
+
   return (
-    <UserProvider.Provider value={{ user, Auth, err, dispatch }}>
+    <UserProvider.Provider value={{ user, Auth, err, loader, dispatch }}>
       {children}
     </UserProvider.Provider>
   );

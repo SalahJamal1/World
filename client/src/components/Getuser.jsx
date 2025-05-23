@@ -4,7 +4,6 @@ import { getMe } from "../services/apiCities";
 
 export function Getusers() {
   const { dispatch } = useUser();
-
   useEffect(
     function () {
       async function getUser() {
