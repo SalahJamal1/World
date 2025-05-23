@@ -105,13 +105,13 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 });
 
 exports.Logout = catchAsync(async (req, res, next) => {
-  res.set("Cache-Control", "no-store");
   res.cookie("jwt", "", {
     expires: new Date(0),
     httpOnly: true,
     secure: true,
     sameSite: "none",
   });
+  res.set("Cache-Control", "no-store, max-age=0");
   res.status(200).json({
     status: "success",
     message: "Log out",
