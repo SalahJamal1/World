@@ -16,7 +16,7 @@ function ProtectPage({ children }) {
     [Auth, navigate, loader]
   );
   if (!Auth && loader) return <Loading />;
-  return Auth ? children : null;
+  return loader ? children : null;
 }
 
 export default ProtectPage;
