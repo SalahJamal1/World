@@ -52,7 +52,7 @@ function Login() {
             required
             maxLength="8"
             placeholder="*******"
-            className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-500 px-2 placeholder:text-slate-400"
+            className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-700 px-2 placeholder:text-slate-400"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
