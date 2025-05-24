@@ -12,6 +12,8 @@ export function Getusers() {
           const user = await getMe();
           if (user.status === 200) {
             dispatch({ type: "User/Getuser", payload: user.data.data.doc });
+          } else {
+            dispatch({ type: "User/Error", payload: "Unauthorized" });
           }
         } catch (err) {
           console.log(err);
