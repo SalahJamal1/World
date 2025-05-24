@@ -8,7 +8,7 @@ function User() {
   const { handelLogout } = HandelLogouts();
 
   return (
-    <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 fixed top-10 sm:right-[5%] z-[9999] items-center shadow-lg xs:left-[5%]">
+    <div className="flex space-x-2 bg-slate-600 rounded-lg px-2 py-2 fixed top-10 sm:right-[5%] z-[9999] items-center shadow-lg xs:left-[5%] sm:left-[unset] md:left-[unset] lg:left-[unset]">
       <img
         src={user.avatar}
         alt="user"
