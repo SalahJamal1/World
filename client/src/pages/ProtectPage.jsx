@@ -8,8 +8,8 @@ function ProtectPage({ children }) {
   const navigate = useNavigate();
   useEffect(
     function () {
-      if (loader || !loader) return;
-      else if (!Auth) {
+      if (!loader) return;
+      if (!Auth && !loader) {
         navigate("/");
       }
     },
