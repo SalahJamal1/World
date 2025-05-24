@@ -11,14 +11,12 @@ const hpp = require("hpp");
 const { AppError } = require("./utils/AppError");
 const Citiesrouter = require("./routers/Citiesrouter");
 const router = require("./routers/userrouter");
-///////////////////
+
 const app = express();
-//////////////////////
 app.use(compression());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(express.json());
-///////////////////////
 const allowedOrigins = [
   "https://world-lilac-two.vercel.app",
   "https://world-q468.vercel.app",
@@ -47,11 +45,10 @@ app.use(
     message: "please try later",
   })
 );
-//////////////////////
 app.use(expressMongosanitize());
 app.use(xssClean());
 app.use(hpp());
-//////////////////////
+
 app.use("/api/v1/cities", Citiesrouter);
 app.use("/api/v1/users", router);
 
