@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 
@@ -20,7 +26,7 @@ const Login = lazy(() => import("./pages/Login"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -75,7 +81,7 @@ function App() {
           </CitiesContext>
         </UserContext>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
