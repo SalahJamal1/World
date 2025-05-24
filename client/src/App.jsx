@@ -11,7 +11,6 @@ import Countries from "./components/Countries";
 import CityName from "./components/CityName";
 import ProtectPage from "./pages/ProtectPage";
 import UserContext from "./context/UserContext";
-import { Getusers } from "./components/Getuser";
 
 const SignUp = lazy(() => import("./pages/SignUp"));
 const Home = lazy(() => import("./pages/Home"));
@@ -50,7 +49,6 @@ function App() {
       <Suspense fallback={<Loading />}>
         <UserContext>
           <CitiesContext>
-            <Getusers />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="pricing" element={<Pricing />} />

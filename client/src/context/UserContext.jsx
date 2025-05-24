@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { useReducer } from "react";
+import FetchCurrentUser from "../components/FetchCurrentUser";
 
 const initialState = {
   user: {},
@@ -46,8 +47,10 @@ function UserContext({ children }) {
     reducer,
     initialState
   );
+
   return (
     <UserProvider.Provider value={{ user, Auth, err, loader, dispatch }}>
+      <FetchCurrentUser />
       {children}
     </UserProvider.Provider>
   );

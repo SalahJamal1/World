@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useUser } from "../context/UserContext";
 import { getMe } from "../services/apiCities";
 
-export function Getusers() {
+export default function FetchCurrentUser() {
   const { dispatch } = useUser();
   useEffect(
     function () {
@@ -26,4 +26,5 @@ export function Getusers() {
     },
     [dispatch]
   );
+  return null;
 }
