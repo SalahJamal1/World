@@ -16,8 +16,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        loader: true,
         Auth: state.user.name ? true : false,
+        loader: false,
+      };
+    case "User/Loader":
+      return {
+        ...state,
+        loader: true,
       };
     case "User/Logout":
       return { ...state, user: {}, Auth: false, loader: false };

@@ -8,15 +8,15 @@ function ProtectPage({ children }) {
   const navigate = useNavigate();
   useEffect(
     function () {
-      if (!loader) return;
-      if (!Auth && !loader) {
+      if (loader) return;
+      if (!Auth) {
         navigate("/");
       }
     },
     [Auth, navigate, loader]
   );
-  if (!Auth && loader) return <Loading />;
-  return loader ? children : null;
+  if (loader) return <Loading />;
+  return Auth ? children : null;
 }
 
 export default ProtectPage;

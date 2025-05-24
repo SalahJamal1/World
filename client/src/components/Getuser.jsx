@@ -7,6 +7,7 @@ export function Getusers() {
   useEffect(
     function () {
       async function getUser() {
+        dispatch({ type: "User/Loader" });
         try {
           const user = await getMe();
           if (user.status === 200) {
