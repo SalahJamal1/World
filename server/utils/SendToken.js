@@ -7,8 +7,8 @@ exports.SendToken = (user, res) => {
   res.cookie("jwt", token, {
     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
   });
   user.password = undefined;
 

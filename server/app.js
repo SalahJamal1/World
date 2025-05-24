@@ -36,6 +36,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+app.options("*", cors());
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(
