@@ -20,13 +20,18 @@ function Login() {
 
   const handelLogin = async (e) => {
     e.preventDefault();
+
     try {
+      dispatch({ type: "User/Loader" });
+
       const data = await login(formData);
 
       if (data.status === 200) {
         toast.success("Login successfully");
         dispatch({ type: "User/Login", payload: data.data.user });
         navigate("/app");
+      } else {
+        dispatch({ type: "User/Error", payload: "Unauthorized" });
       }
     } catch (err) {
       console.log(err);

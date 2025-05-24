@@ -11,7 +11,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "User/Login":
-      return { ...state, user: action.payload, Auth: true, loader: true };
+      return { ...state, user: action.payload, Auth: true, loader: false };
     case "User/Getuser":
       return {
         ...state,
