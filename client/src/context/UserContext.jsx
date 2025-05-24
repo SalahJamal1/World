@@ -4,7 +4,7 @@ import FetchCurrentUser from "../components/FetchCurrentUser";
 
 const initialState = {
   user: {},
-  Auth: false,
+  Auth: JSON.parse(localStorage.getItem("Auth")) || false,
   err: "",
   loader: false,
 };
@@ -12,7 +12,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "User/Login":
-      localStorage.setItem("Auth", true);
+      localStorage.setItem("Auth", JSON.stringify(true));
       return {
         ...state,
         user: action.payload,
@@ -24,7 +24,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        Auth: JSON.parse(localStorage.getItem("Auth")),
         loader: false,
       };
     case "User/Loader":
