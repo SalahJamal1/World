@@ -85,7 +85,7 @@ function Form() {
         type="date"
         id="date"
         required
-        className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-500 px-2 placeholder:text-slate-400"
+        className="rounded-md h-8 bg-slate-300 mb-6 outline-none text-slate-500 px-2 placeholder:text-slate-400 max-w-full"
         value={date}
         onChange={(e) => setdate(e.target.value)}
       />
