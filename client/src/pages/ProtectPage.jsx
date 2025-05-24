@@ -6,11 +6,8 @@ import Loading from "../ui/Loading";
 function ProtectPage({ children }) {
   const { Auth, loader, err } = useUser();
   const navigate = useNavigate();
-  console.log(err);
   useEffect(
     function () {
-      // if (Auth === undefined) return;
-
       if (!loader && !err) return;
       if ((!Auth && !loader) || err === "please Login") {
         navigate("/");
