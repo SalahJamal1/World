@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useUser } from "../context/UserContext";
 
 function PageNav() {
-  const { user } = useUser();
+  const { Auth } = useUser();
   const { handelLogout } = HandelLogouts();
   const [isOpen, setIsOpen] = useState(null);
   return (
@@ -34,19 +34,19 @@ function PageNav() {
             <Link
               to="/login"
               onClick={(e) => {
-                if (user.name) {
+                if (Auth) {
                   e.preventDefault();
                   handelLogout();
                 }
               }}
               className="text-slate-900 font-semibold uppercase tracking-wide bg-green-600 px-4 py-2 rounded-lg"
             >
-              {user.name ? "Logout" : "Login"}
+              {Auth ? "Logout" : "Login"}
             </Link>
           </li>
         </ul>
       </nav>
-      <NavBar isOpen={isOpen} handelLogout={handelLogout} user={user} />
+      <NavBar isOpen={isOpen} handelLogout={handelLogout} Auth={Auth} />
       <span
         onClick={() => setIsOpen((s) => !s)}
         className="sm:opacity-1 xs:opacity-1 md:hidden lg:hidden xl:hidden"
@@ -76,7 +76,7 @@ function PageNav() {
 
 export default PageNav;
 
-function NavBar({ isOpen, user, handelLogout }) {
+function NavBar({ isOpen, Auth, handelLogout }) {
   return (
     <nav
       style={{
@@ -116,14 +116,14 @@ function NavBar({ isOpen, user, handelLogout }) {
           <Link
             to="/login"
             onClick={(e) => {
-              if (user.name) {
+              if (Auth) {
                 e.preventDefault();
                 handelLogout();
               }
             }}
             className="text-slate-900 font-semibold uppercase tracking-wide bg-green-600 px-4 py-2 rounded-lg"
           >
-            {user.name ? "Logout" : "Login"}
+            {Auth ? "Logout" : "Login"}
           </Link>
         </li>
       </ul>
