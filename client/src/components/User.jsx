@@ -14,7 +14,9 @@ function User() {
         alt="user"
         className="sm:h-12 xs:h-8 rounded-full"
       />
-      <h3 className="text-slate-100 xs:text-[10px]">Welcome,{user.name}</h3>
+      <h3 className="text-slate-100 text-base xs:text-[10px]">
+        Welcome,{user.name}
+      </h3>
       <button
         className="sm:px-2  sm:py-1 xs:p-1 rounded-md border border-slate-100 text-slate-100 uppercase sm:text-sm xs:text-[10px]"
         onClick={handelLogout}
