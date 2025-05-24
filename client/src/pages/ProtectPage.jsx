@@ -4,17 +4,18 @@ import { useUser } from "../context/UserContext";
 import Loading from "../ui/Loading";
 
 function ProtectPage({ children }) {
-  const { Auth, loader, err } = useUser();
+  const { Auth, loader } = useUser();
   const navigate = useNavigate();
   useEffect(
     function () {
-      if (!loader && !err) return;
-      if ((!Auth && !loader) || err === "please Login") {
+      if (!loader) return;
+      if (!Auth) {
         navigate("/");
       }
     },
-    [Auth, navigate, loader, err]
+    [Auth, navigate, loader]
   );
+  console.log(Auth, loader);
   if (loader) return <Loading />;
   return Auth ? children : null;
 }

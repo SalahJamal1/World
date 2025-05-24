@@ -11,6 +11,7 @@ export function HandelLogouts() {
       const data = await Logout();
       if (data.status === 200) {
         dispatch({ type: "User/Logout" });
+        localStorage.removeItem("Auth");
         navigate("/");
       }
     } catch (err) {

@@ -12,6 +12,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "User/Login":
+      localStorage.setItem("Auth", true);
       return {
         ...state,
         user: action.payload,
@@ -23,8 +24,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        Auth: action.payload?.name ? true : false,
-
+        Auth: JSON.parse(localStorage.getItem("Auth")),
         loader: false,
       };
     case "User/Loader":
@@ -33,6 +33,7 @@ const reducer = (state, action) => {
         loader: true,
       };
     case "User/Logout":
+      localStorage.removeItem("Auth");
       return { ...state, user: {}, Auth: false, loader: false };
     case "User/Error":
       return { ...state, err: action.payload, loader: false };
