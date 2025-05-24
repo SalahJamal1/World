@@ -1,3 +1,8 @@
 {
-  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://world-q468.vercel.app/api/:path*"
+    }
+  ]
 }
